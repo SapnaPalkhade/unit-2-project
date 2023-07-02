@@ -6,9 +6,9 @@ const userController = require('../controllers/userController')
 router.post('/', userController.createUser)
 
 // Route for user login
-router.post('/login',userController.auth, userController.loginUser)
+router.post('/login', userController.loginUser)
 
-router.post('/logout',  userController.logoutUser)
+router.post('/logout', userController.auth, userController.logoutUser)
 
 // Route for updating a user by ID, with authentication middleware
 router.put('/:id', userController.auth, userController.updateUser)

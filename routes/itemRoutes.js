@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const itemController = require('../controllers/itemController')
+const cartController = require('../controllers/cartController')
 const userController = require('../controllers/userController')
 
 // // Route for creating a new item
