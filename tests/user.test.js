@@ -34,9 +34,11 @@ describe('Test the users endpoints', () => {
     test('It should login a user', async () => {
         const user = new User({ name: 'Gunish', email: 'gunish@123.com', password: 'password' })
         await user.save()
+        //const token = await user.generateAuthToken()
 
         const response = await request(app)
             .post('/users/login')
+            //.set('Authorization', `Bearer ${token}`)
             .send({ email: 'gunish@123.com', password: 'password' })
 
         expect(response.statusCode).toBe(200)
@@ -47,7 +49,7 @@ describe('Test the users endpoints', () => {
 
     test('It should logout a user ', async () => {
         const user = new User({ name: 'john', email: 'john@example.com', password: 'password' })
-        await user.save();
+        await user.save()
         const token = await user.generateAuthToken()
 
         const response = await request(app)

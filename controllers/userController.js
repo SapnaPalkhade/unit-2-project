@@ -52,9 +52,9 @@ exports.logoutUser = async (req, res) => {
     try {
         user.loggedIn = false
         console.log(user.loggedIn)
-       // await req.user.save()
-        res.json({message: "user logout"})
-        
+        // await req.user.save()
+        res.json({ message: "user logout" })
+
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -74,9 +74,9 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
     try {
-        await req.user.deleteOne({_id: req.params.id})
+        await req.user.deleteOne({ _id: req.params.id })
         //res.sendStatus(204)
-        res.json({message: "User deleted"})
+        res.json({ message: "User deleted" })
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
